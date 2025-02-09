@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+		DOCKERHUB_CREDENTIALS=credentials('dockerhub_id')
+	}
     stages {
         stage('Checkout') {
             steps {
@@ -8,13 +11,19 @@ pipeline {
         }
         stage('Dockerize') {
             steps {
-                sh 'docker build -t wheater_app .'
+                sh 'docker build -t omarmohamed04/weahter_app .'
             }
         }
-        stage('run container') {
+        stage('login dockerhub') {
             steps {
-                sh 'docker run -p 5000:5000 -d wheater_app'
+            sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
             }
         }
+        stage('push image') {
+            steps {
+                sh 'docker push omarmohamed04/weahter_app'
+            }
+        }
+        
     }
 }
