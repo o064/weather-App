@@ -26,4 +26,13 @@ pipeline {
         }
         
     }
+            stage('ansible') {
+            steps {
+                sh'''
+                chmod 600 ./vms/m02/virtualbox/private_key
+                chmod 600 ./vms/m01/virtualbox/private_key
+                ansible all -m ping -i inventory
+                '''
+            }
+        }
 }

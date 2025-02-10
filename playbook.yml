@@ -1,0 +1,32 @@
+- name: Install Docker and Deploy Weather App
+  hosts: vms
+  become: yes
+  tasks:
+    - name: Install Docker
+      shell: curl -fsSL https://get.docker.com/ | sh
+
+    - name: Start and enable Docker service
+      systemd:
+        name: docker
+        state: started
+        enabled: yes
+
+    - name: Add current user to Docker group
+      user:
+        name: "{{ ansible_user }}"
+        groups: docker
+        append: yes
+
+    - name: Pull Docker image
+      docker_image:
+        name: omarmohamed04/weahter_app
+        source: pull
+
+    - name: Run Docker container
+      docker_container:
+        name: weahter_app
+        image: omarmohamed04/weahter_app
+        state: started
+        restart_policy: always
+        published_ports:
+          - "5000:5000"
