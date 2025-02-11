@@ -22,7 +22,7 @@ pipeline {
         }
         stage('push image') {
             steps {
-                sh 'docker push omarmohamed04/weahter_app'
+                sh 'docker push omarmohamed04/weahter_app:latest'
             }
         }
 	stage('run ansible playbook') {
