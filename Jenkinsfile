@@ -30,6 +30,7 @@ pipeline {
 		sh'''
 		chmod 600 ./vms/m02/virtualbox/private_key
 		chmod 600 ./vms/m01/virtualbox/private_key
+		export ANSIBLE_HOST_KEY_CHECKING=False
 		ansible-playbook -i inventory playbook.yml
 		'''
 	    }
