@@ -25,9 +25,7 @@ pipeline {
                 sh 'docker push omarmohamed04/weahter_app'
             }
         }
-        
-    }
-	    stage('run ansible playbook') {
+	stage('run ansible playbook') {
 	    steps {
 		sh'''
 		chmod 600 ./vms/m02/virtualbox/private_key
@@ -35,11 +33,14 @@ pipeline {
 		ansible-playbook -i inventory playbook.yml
 		'''
 	    }
-	}
+	} 
         stage('Logout from DockerHub') {
 	    steps {
 		sh 'docker logout'
 	    }
-}
+	}   
+    }
+
 
 }
+
