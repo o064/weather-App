@@ -2,6 +2,11 @@
   hosts: vms
   become: yes
   tasks:
+    - name: Install required dependencies
+      yum:
+        name: yum-utils
+        state: present
+        
     - name: Install Docker
       shell: curl -fsSL https://get.docker.com/ | sh
 
@@ -24,7 +29,7 @@
 
     - name: Run Docker container
       docker_container:
-        name: weahter_app
+        name: weahter_app_container
         image: omarmohamed04/weahter_app
         state: started
         restart_policy: always
