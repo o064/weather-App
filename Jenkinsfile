@@ -16,7 +16,8 @@ pipeline {
         }
         stage('login dockerhub') {
             steps {
-            sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+        	sh 'echo "$DOCKERHUB_CREDENTIALS_PSW" | docker login -u "$DOCKERHUB_CREDENTIALS_USR" --password-stdin'
+
             }
         }
         stage('push image') {
@@ -26,13 +27,19 @@ pipeline {
         }
         
     }
-            stage('ansible') {
-            steps {
-                sh'''
-                chmod 600 ./vms/m02/virtualbox/private_key
-                chmod 600 ./vms/m01/virtualbox/private_key
-                ansible all -m ping -i inventory
-                '''
-            }
-        }
+	    stage('run ansible playbook') {
+	    steps {
+		sh'''
+		chmod 600 ./vms/m02/virtualbox/private_key
+		chmod 600 ./vms/m01/virtualbox/private_key
+		ansible-playbook -i inventory playbook.yml
+		'''
+	    }
+	}
+        stage('Logout from DockerHub') {
+	    steps {
+		sh 'docker logout'
+	    }
+}
+
 }
