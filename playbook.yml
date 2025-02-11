@@ -29,7 +29,7 @@
 
     - name: Run Docker container
       docker_container:
-        name: weahter_app_container
+        name: weahter_app_v01
         image: omarmohamed04/weahter_app
         state: started
         restart_policy: always
