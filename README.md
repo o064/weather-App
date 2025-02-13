@@ -15,13 +15,16 @@ CI/CD Deployment of a Web Application Using Jenkins, Docker, and Ansible. This p
 ---
 
 ## Project Directory Layout
+
 weather-app/
-├── Dockerfile # To containerize the app
-├── Jenkinsfile # Defines the pipeline for CI
-├── Vagrantfile # Configures the virtual machines for deployment
-├── inventory # Contains target machine details for Ansible
-├── playbook.yml # Ansible playbook to automate deployment
-└── app/ # Application code
+- app/              Application source code
+- Dockerfile        Defines the containerization of the app
+- Jenkinsfile       CI/CD pipeline configuration for Jenkins
+- Vagrantfile       Configures virtual machines for deployment
+- inventory         Ansible inventory file with target machine details
+- playbook.yml      Ansible playbook for automated deployment
+- README.md         Project documentation and setup instructions
+
 
 ---
 
