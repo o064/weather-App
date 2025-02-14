@@ -108,14 +108,15 @@ To enable email notifications in Jenkins, follow these steps:
   Use SSL: ✅ (Enable this option)
   SMTP Port: 465
   ````
+### 3. Test Email Notification
+- Click **Test configuration by sending a test email** to ensure everything is set up correctly.
+
   
-### 3. Install the Mailexec Extension
+### 4. Install the Mailexec Extension
 - Go to **Manage Jenkins** > **Manage Plugins**.
 - Search for **Mailexec Plugin**.
 - Install and restart Jenkins if required.
 
-### 4. Test Email Notification
-- Click **Test configuration by sending a test email** to ensure everything is set up correctly.
 
 ### 5. Expected Outcomes
 ✅ **Success**
