@@ -31,6 +31,7 @@ weather-app/
 ## Project Workflow and Visualization
 ### Visulaiztion 
 ![image](https://github.com/user-attachments/assets/e8195169-3059-4a2e-b44f-9df3bec07b1e)
+![image](https://github.com/user-attachments/assets/e9813f1f-5316-4516-b5eb-bc7cf6b7a402)
 
 1. **Push Code to Private Repo**:
    - Ensure you have an API key from [OpenWeatherMap](https://openweathermap.org/api) and set it as `API_KEY` in `app.py`.
@@ -84,10 +85,51 @@ weather-app/
       ```
       http://<your_machine_IP>:5000
       ```
-    - Example:
+    - vm 1
       ![Website Screenshot](https://github.com/user-attachments/assets/0ee62dbb-1691-4a12-b2a8-2136d6ab91b6)
+    - vm 2
+      <img width="943" alt="Screenshot 2025-02-11 223347" src="https://github.com/user-attachments/assets/6ad93444-55ca-4471-a153-8442a48b3b55" />
 
 ---
+## Enabling Email Notifications in Jenkins
+
+To enable email notifications in Jenkins, follow these steps:
+
+### 1. Access Jenkins Settings
+- Navigate to **Manage Jenkins** > **System**.
+
+### 2. Configure SMTP Settings
+- Scroll down to the **E-mail Notification** section and enter the following details:
+
+  ```plaintext
+  SMTP Server: smtp.gmail.com
+  User Name: <Your Email ID>
+  Password: <App Password>
+  Use SSL: ✅ (Enable this option)
+  SMTP Port: 465
+  ````
+  
+### 3. Install the Mailexec Extension
+- Go to **Manage Jenkins** > **Manage Plugins**.
+- Search for **Mailexec Plugin**.
+- Install and restart Jenkins if required.
+
+### 4. Test Email Notification
+- Click **Test configuration by sending a test email** to ensure everything is set up correctly.
+
+### 5. Expected Outcomes
+✅ **Success**
+ ![WhatsApp Image 2025-02-14 at 16 32 31_94f3b100](https://github.com/user-attachments/assets/27364c65-9d69-42fb-9e70-d173a2964095)
+❌ **failure**
+ ![WhatsApp Image 2025-02-14 at 16 32 32_6e64c52e](https://github.com/user-attachments/assets/9c529100-7b00-4727-80ac-eafad7ddd41d)
+ **Success:**
+If the test email fails, ensure:
+- The app password is correct (Google requires an app password instead of your normal password).
+- Less secure app access is enabled for your email account (if applicable).
+- Jenkins has access to the internet and can reach the SMTP server.
+---
+
+
 
 ## Contact
 
