@@ -42,6 +42,22 @@ pipeline {
 	}   
     }
 
-
+    post {
+        success {
+            emailext subject: "SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                     body: "Great! The build succeeded! \n\n Check here: ${env.BUILD_URL}",
+                     to: 'om039919@gmail.com'
+        }
+        failure {
+            emailext subject: "FAILURE: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                     body: "Oops! The build failed. \n\n Logs: ${env.BUILD_URL}",
+                     to: 'om039919@gmail.com'
+        }
+        always {
+            emailext subject: "Build Completed: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                     body: "The build has finished with status: ${currentBuild.currentResult}. \n\n Details: ${env.BUILD_URL}",
+                     to: 'om039919@gmail.com'
+        }
+    }
 }
 
