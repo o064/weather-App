@@ -30,7 +30,8 @@ weather-app/
 
 ## Project Workflow and Visualization
 ### Visulaiztion 
-![Copy of Diagram (1)](https://github.com/user-attachments/assets/376dcfe0-fb20-40f6-9d47-162b94e1e936)
+![Copy of Diagram (1)](https://github.com/user-attachments/assets/6bac68d6-d3b3-41f3-9a82-6dc19fdebed5)
+
 
 
 1. **Push Code to Private Repo**:
