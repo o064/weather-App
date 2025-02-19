@@ -30,8 +30,8 @@ weather-app/
 
 ## Project Workflow and Visualization
 ### Visulaiztion 
-![image](https://github.com/user-attachments/assets/e8195169-3059-4a2e-b44f-9df3bec07b1e)
-![image](https://github.com/user-attachments/assets/e9813f1f-5316-4516-b5eb-bc7cf6b7a402)
+![Copy of Diagram (1)](https://github.com/user-attachments/assets/376dcfe0-fb20-40f6-9d47-162b94e1e936)
+
 
 1. **Push Code to Private Repo**:
    - Ensure you have an API key from [OpenWeatherMap](https://openweathermap.org/api) and set it as `API_KEY` in `app.py`.
